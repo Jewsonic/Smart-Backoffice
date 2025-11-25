@@ -44,31 +44,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <svg 
-              width="200" 
-              height="60" 
-              viewBox="0 0 200 60" 
-              className="h-10 lg:h-12 w-auto cursor-pointer transition-transform hover:scale-105"
+            <img 
+              src="https://static.lumi.new/86/869c710ba3546a1d50f4f24300e8c267.webp"
+              alt="Smart Backoffice Logo"
+              className="h-[100px] lg:h-[120px] w-auto cursor-pointer transition-transform hover:scale-105"
               onClick={() => scrollToSection('inicio')}
-            >
-              {/* Fundo verde com bordas arredondadas */}
-              <rect width="200" height="60" fill="#B6FF40" rx="8"/>
-              
-              {/* Letras "SB" em destaque */}
-              <text x="100" y="28" fontSize="26" fontWeight="bold" fill="#0057A3" textAnchor="middle" fontFamily="Inter, Arial, sans-serif" letterSpacing="2">
-                SB
-              </text>
-              
-              {/* Linha divisória */}
-              <line x1="40" y1="35" x2="160" y2="35" stroke="#0057A3" strokeWidth="1.5" opacity="0.3"/>
-              
-              {/* Texto "Smart Backoffice" */}
-              <text x="100" y="50" fontSize="9" fontWeight="600" fill="#0057A3" textAnchor="middle" fontFamily="Inter, Arial, sans-serif" letterSpacing="1">
-                SMART BACKOFFICE
-              </text>
-              
-
-            </svg>
+            />
           </div>
 
           {/* Desktop Navigation */}
