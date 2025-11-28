@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import {Mail, Phone, MessageCircleDashed as MessageCircle, Send, MapPin, Clock, CheckCircle, XCircle} from 'lucide-react'
+import {Mail, Phone, MessageCircleDashed as MessageCircle, Send, MapPin, Clock, CheckCircle, XCircle, Instagram, Linkedin} from 'lucide-react'
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -90,6 +90,18 @@ const Contact = () => {
       label: 'WhatsApp',
       value: '(11) 98514-8378',
       link: 'https://wa.me/5511985148378'
+    },
+    {
+      icon: Instagram,
+      label: 'Instagram',
+      value: '@smartbackofficeconsultoria',
+      link: 'https://www.instagram.com/smartbackofficeconsultoria/'
+    },
+    {
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: 'Smart Backoffice',
+      link: 'https://www.linkedin.com/in/smartbackofficeconsultoria/'
     },
     {
       icon: MapPin,
