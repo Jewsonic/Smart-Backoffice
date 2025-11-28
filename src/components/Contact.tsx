@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import {Mail, Phone, MessageCircleDashed as MessageCircle, Send, MapPin, Clock} from 'lucide-react'
+import {Mail, Phone, MessageCircleDashed as MessageCircle, Send, MapPin, Clock, CheckCircle, XCircle} from 'lucide-react'
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -18,6 +18,8 @@ const Contact = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -30,19 +32,50 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Here you would integrate with your email service
-    console.log('Form submitted:', formData)
-    
-    // Reset form
-    setFormData({ name: '', email: '', company: '', message: '' })
-    setIsSubmitting(false)
-    
-    // Show success message (you could use a toast notification)
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.')
+    try {
+      // Send email via Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'e62f15fd-b2ea-41b5-8b27-1f6bb4336753',
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          subject: `Novo contato de ${formData.name} - Smart Backoffice`,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', company: '', message: '' })
+        
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle')
+        }, 5000)
+      } else {
+        throw new Error(result.message || 'Erro ao enviar mensagem')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+      setErrorMessage(
+        error instanceof Error 
+          ? error.message 
+          : 'Erro ao enviar mensagem. Por favor, tente novamente.'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -74,7 +107,7 @@ const Contact = () => {
 
   return (
     <section id="contato" className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div 
           ref={ref}
           className="max-w-7xl mx-auto"
@@ -114,6 +147,36 @@ const Contact = () => {
                 <h3 className="text-2xl font-bold text-primary-900 mb-6">
                   Solicite um Diagnóstico Gratuito
                 </h3>
+                
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
+                    <CheckCircle size={24} className="text-green-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-1">
+                        Mensagem enviada com sucesso!
+                      </h4>
+                      <p className="text-green-700 text-sm">
+                        Obrigado pelo contato. Retornaremos em breve!
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                    <XCircle size={24} className="text-red-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-red-800 mb-1">
+                        Erro ao enviar mensagem
+                      </h4>
+                      <p className="text-red-700 text-sm">
+                        {errorMessage}
+                      </p>
+                    </div>
+                  </div>
+                )}
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">

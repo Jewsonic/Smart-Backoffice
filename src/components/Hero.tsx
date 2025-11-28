@@ -12,9 +12,9 @@ const Hero = () => {
   }
 
   return (
-    <section id="inicio" className="pt-20 lg:pt-24 pb-16 lg:pb-24 bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <section id="inicio" className="pt-28 lg:pt-36 pb-16 lg:pb-24 bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-0">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Content */}
             <motion.div 
@@ -146,8 +146,8 @@ const Hero = () => {
               </div>
               
               {/* Background decoration */}
-              <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-slate-200 to-gray-200 rounded-full opacity-20 -z-10" />
-              <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-gradient-to-tr from-gray-200 to-slate-200 rounded-full opacity-20 -z-10" />
+              <div className="hidden lg:block absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-slate-200 to-gray-200 rounded-full opacity-20 -z-10" />
+              <div className="hidden lg:block absolute -bottom-8 -left-8 w-64 h-64 bg-gradient-to-tr from-gray-200 to-slate-200 rounded-full opacity-20 -z-10" />
             </motion.div>
           </div>
         </div>

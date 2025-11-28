@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import {Brain, Zap, LineChart, Cog, ArrowRight} from 'lucide-react'
+import {Building2, Zap, LineChart, Cog, ArrowRight} from 'lucide-react'
 
 const Services = () => {
   const [ref, inView] = useInView({
@@ -12,7 +12,7 @@ const Services = () => {
 
   const services = [
     {
-      icon: Brain,
+      icon: Building2,
       title: 'Gestão Empresarial',
       description: 'Planejamento, governança e OKRs com foco em resultados.',
       details: [
@@ -63,7 +63,7 @@ const Services = () => {
 
   return (
     <section id="servicos" className="py-16 lg:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div 
           ref={ref}
           className="max-w-7xl mx-auto"

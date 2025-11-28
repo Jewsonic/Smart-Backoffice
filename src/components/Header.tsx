@@ -40,14 +40,14 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+        <div className="flex justify-between items-center h-20 lg:h-28">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img 
               src="https://static.lumi.new/86/869c710ba3546a1d50f4f24300e8c267.webp"
               alt="Smart Backoffice Logo"
-              className="h-[100px] lg:h-[120px] w-auto cursor-pointer transition-transform hover:scale-105"
+              className="h-[80px] lg:h-[120px] w-auto cursor-pointer transition-transform hover:scale-105 mt-2"
               onClick={() => scrollToSection('inicio')}
             />
           </div>
@@ -58,7 +58,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-slate-700 hover:text-slate-900 font-medium transition-colors duration-200"
+                className="text-xl text-slate-700 hover:text-slate-900 font-medium transition-colors duration-200"
               >
                 {item.label}
               </button>

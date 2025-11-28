@@ -51,7 +51,7 @@ const Process = () => {
 
   return (
     <section id="como" className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div 
           ref={ref}
           className="max-w-7xl mx-auto"
@@ -81,18 +81,16 @@ const Process = () => {
           </div>
 
           {/* Process Steps */}
-          <div className="relative">
-            {/* Connection Lines - Desktop */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 transform -translate-y-1/2 z-0" />
+          <div className="relative max-w-full">
             
-            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
+            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 relative z-10 px-6 sm:px-8">
               {steps.map((step, index) => {
                 const IconComponent = step.icon
                 
                 return (
                   <motion.div
                     key={index}
-                    className="relative"
+                    className="relative px-4"
                     initial={{ opacity: 0, y: 50 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}

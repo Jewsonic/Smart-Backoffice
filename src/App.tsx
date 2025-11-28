@@ -12,7 +12,7 @@ import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white font-inter">
+    <div className="min-h-screen bg-white font-inter overflow-x-hidden">
       <Header />
       <main>
         <Hero />
