@@ -69,7 +69,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
                   >
-                    (11) 98514-8378
+                    (11) 988477377
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-primary-300">
