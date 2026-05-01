@@ -3,7 +3,7 @@ import {MessageCircleDashed as MessageCircle} from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const WhatsAppButton: React.FC = () => {
-  const whatsappNumber = "5511985148378"
+  const whatsappNumber = "5511988477377"
   const defaultMessage = "Olá! Gostaria de saber mais sobre os serviços da Smart Backoffice."
 
   return (
