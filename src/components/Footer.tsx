@@ -63,8 +63,8 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3 text-primary-300">
                   <Phone size={18} className="text-slate-400" />
-                  <a 
-                    href="https://wa.me/5511985148378"
+                  <a git
+                    href="https://wa.me/5511988477377"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
