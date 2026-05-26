@@ -88,8 +88,8 @@ const Contact = () => {
     {
       icon: Phone,
       label: 'WhatsApp',
-      value: '(11) 98514-8378',
-      link: 'https://wa.me/5511985148378'
+      value: '(11) 988477377',
+      link: 'https://wa.me/5511988477377'
     },
     {
       icon: Instagram,
@@ -340,7 +340,7 @@ const Contact = () => {
                   </div>
                   
                   <a
-                    href="https://wa.me/5511985148378?text=Olá! Gostaria de saber mais sobre os serviços da Smart Backoffice."
+                    href="https://wa.me/5511988477377?text=Olá! Gostaria de saber mais sobre os serviços da Smart Backoffice."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 flex items-center justify-center gap-2"
