@@ -297,7 +297,7 @@ const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ score, answers, que
                 transition={{ duration: 0.5, delay: 1.5 }}
               >
                 <a
-                  href={`https://wa.me/5511985148378?text=${generateWhatsAppMessage()}`}
+                  href={`https://wa.me/551988477377?text=${generateWhatsAppMessage()}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 bg-slate-700 text-white px-8 py-4 rounded-xl font-semibold hover:bg-slate-800 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
